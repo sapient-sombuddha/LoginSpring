@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Signup</title>
+    <link rel="stylesheet" href="css/signup.css">
+    <script src="js/jquery.js"></script>
+</head>
+<body >
+<div class="login-page">
+    <div class="form">
+        <div th:switch="${message}">
+            <h4 style="color: red;" th:case="'error'" th:text="${error}"></h4>
+            <h4 th:case="'success'">Success! You may login now!</h4>
+        </div>
+        <form class="register-form" action="#" th:action="@{/signup}" th:object="${profile}" method="post">
+            <input type="text" placeholder="Name" th:field="*{name}"/>
+            <input type="password" placeholder="Password"  th:field="*{password}"/>
+            <input type="text" placeholder="Username"  th:field="*{username}"/>
+            <input type="submit"  id="submit" value="Sign Up"/>
+            <p class="message">Already registered? <a href="../login">Login</a></p>
+        </form>
+    </div>
+</div>
+</body>
+</html>
